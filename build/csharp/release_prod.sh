@@ -10,7 +10,7 @@ RESULT=$(git tag -l ${TAG})
 if [[ "$RESULT" != ${TAG} ]]; then
     dotnet pack -c Release --no-build
     echo "Releasing ${ARTIFACT_NAME} artifact"
-    find . -name *${BASE_VERSION}.nupkg  | xargs -L1 -I '{}' dotnet nuget push {} -k ${NUGET_KEY} -s ${NUGET_SOURCE}
+#    find . -name *${BASE_VERSION}.nupkg  | xargs -L1 -I '{}' dotnet nuget push {} -k ${NUGET_KEY} -s ${NUGET_SOURCE}
 
     # Create tag
     git tag -f ${TAG} ${GITHUB_SHA}
